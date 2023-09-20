@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../post/Post'
+import PostForm from '../post/PostForm'
 
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
@@ -31,6 +32,7 @@ const Feed = ({ navigate }) => {
       return(
         <>
           <h2>Posts</h2>
+          <PostForm token={ token }/>
             <button onClick={logout}>
               Logout
             </button>
