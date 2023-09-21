@@ -15,19 +15,16 @@ const PostForm = ({ token }) => {
         body: JSON.stringify({ message: message})
       }) 
       if (response.status !== 201) {
-        console.log("Ops! Something went wrong!")
       } else {
         let data = await response.json();
         window.localStorage.setItem("token", data.token);
         window.location.reload()
-        console.log("Post added!")
       }
       
   };
 
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
-    console.log(event.target.value)
   };
 
   return (
