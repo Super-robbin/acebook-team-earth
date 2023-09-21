@@ -1,9 +1,8 @@
 import './App.css';
 import LoginForm from '../auth/LoginForm'
 import SignUpForm from '../user/SignUpForm'
-import React, { useState } from 'react';
+import React from 'react';
 import Feed from '../feed/Feed'
-import Navbar from '../navi_bar/NaviBar'
 import {
   useNavigate,
   Routes,
@@ -12,9 +11,8 @@ import {
 import Homepage from '../homepage/Homepage';
 
 const App = () => {
-    return (<>
-
-    <Navbar />
+    return (
+      <>
         <Routes>
           <Route path='/' element={<Homepage />}/>
           <Route path='/posts'  element={<Feed navigate={ useNavigate() }/>}/>

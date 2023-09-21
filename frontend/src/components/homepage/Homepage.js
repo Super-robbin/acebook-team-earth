@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar from "../navi_bar/NaviBar";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const Homepage = () => {
