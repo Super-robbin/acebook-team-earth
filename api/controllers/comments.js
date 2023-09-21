@@ -7,18 +7,18 @@ const CommentsController = {
             if (err) {
             throw err;
         }
-            const token = TokenGenerator.jsonwebtoken(req.user_id);
+            const token = TokenGenerator.jsonwebtoken(req.post_id);
             res.status(200).json({ comments: comments, token: token });
         });
     },
     Create: (req, res) => {
-        const Comment = new comment(req.body);
-        Comment.save((err) => {
+        const comment = new Comment(req.body);
+        comment.save((err) => {
             if (err) {
             throw err;
         }
 
-        const token = TokenGenerator.jsonwebtoken(req.user_id);
+        const token = TokenGenerator.jsonwebtoken(req.post_id);
         res.status(201).json({ message: "OK", token: token });
     });
     },
