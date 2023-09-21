@@ -38,6 +38,7 @@ const tokenChecker = (req, res, next) => {
 };
 
 // route setup
+app.use("/")
 app.use("/posts", tokenChecker, postsRouter);
 app.use("/tokens", authenticationRouter);
 app.use("/users", usersRouter);
