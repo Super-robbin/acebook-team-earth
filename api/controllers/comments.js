@@ -12,7 +12,9 @@ const CommentsController = {
         });
     },
     Create: (req, res) => {
+        
         const comment = new Comment(req.body);
+        console.log(comment)
         comment.save((err) => {
             if (err) {
             throw err;
