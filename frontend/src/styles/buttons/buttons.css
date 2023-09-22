@@ -1,0 +1,42 @@
+.button__container {
+	display: flex;
+	justify-content: space-around;
+	width: 30vw;
+}
+
+.button {
+	cursor: pointer;
+    width: 10rem;
+    position: relative;
+	border-radius: 20px;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: .5rem 2rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.ghost {
+    border-style: solid;
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+.button:active {
+	transform: scale(0.95);
+}
+
+.button:focus {
+	outline: none;
+}
+
+/* .nav-button {
+	border-style: solid;
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	border-radius: 20px;
+	padding: .5rem 2rem;
+} */
