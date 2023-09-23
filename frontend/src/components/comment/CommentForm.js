@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const CommentForm = ({token}) => {
-    const [comment, setComment] = useState('')
+const CommentForm = ({token, post}) => {
+    const [content, setContent] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -12,7 +12,7 @@ const CommentForm = ({token}) => {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
             },
-            body: JSON.stringify({ comment: comment })
+            body: JSON.stringify({ content: content, post_id: post._id })
         })
         if (response.status !== 201) {
             console.log('bad request')
@@ -24,12 +24,12 @@ const CommentForm = ({token}) => {
     }
 
     const handleCommentChange = (e) => {
-        setComment(e.target.value)
+        setContent(e.target.value)
     }
     return (
         <>
             <form onSubmit={handleSubmit}> 
-                <textarea value={comment} onChange={handleCommentChange} name="comment" form="commentform" placeholder="Comment here..."></textarea>
+                <textarea value={content} onChange={handleCommentChange} name="content" form="commentform" placeholder="Comment here..."></textarea>
                 <button>Add Comment</button>
             </form>
         </>

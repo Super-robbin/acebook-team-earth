@@ -17,7 +17,6 @@ const Feed = ({ navigate }) => {
         .then(async data => {
           window.localStorage.setItem("token", data.token)
           setToken(window.localStorage.getItem("token"))
-          setToken(data.token);
           setPosts(data.posts);
         })
     }
