@@ -15,7 +15,6 @@ const CommentsController = {
   Create: (req, res) => {
     const postId = req.body.post_id;
     const comment = new Comment({ content: req.body.content, post: postId });
-    console.log(comment);
     comment.save((err, savedComment) => {
       if (err) {
         throw err;

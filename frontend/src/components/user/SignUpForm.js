@@ -17,7 +17,6 @@ const SignUpForm = ({ navigate }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     fetch( '/users', {
       method: 'post',
       headers: {
@@ -29,8 +28,12 @@ const SignUpForm = ({ navigate }) => {
         if(response.status === 201) {
           navigate('/login')
         } else {
-          navigate('/signup')
+          return response.json()
         }
+      }).then((data) => {
+        console.log(data.message)
+        setErrors({ ...errors, signUp: data.message });
+      
       })
   }
 
@@ -113,6 +116,9 @@ const SignUpForm = ({ navigate }) => {
               <div className="error__container">
                 {errors.password ? (<p className="error_message">
                     {errors.password}
+                  </p>) : null}
+                  {errors.signUp ? (<p className="error_message">
+                    {errors.signUp}
                   </p>) : null}
               </div>
             <button className="form__button form__ghost" id='submit' type="submit">Sign Up
