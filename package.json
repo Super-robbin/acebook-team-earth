@@ -1,0 +1,15 @@
+{
+  "name": "acebook-team-earth",
+  "version": "1.0.0",
+  "description": "In this project, you are tasked with working on an existing application. A significant part of the challenge will be to familiarise yourself with the codebase you've inherited, as you work to **improve and extend** it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}

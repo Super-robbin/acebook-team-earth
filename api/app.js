@@ -7,6 +7,7 @@ const JWT = require("jsonwebtoken");
 const postsRouter = require("./routes/posts");
 const authenticationRouter = require("./routes/authentication");
 const usersRouter = require("./routes/users");
+const commentsRouter = require('./routes/comment');
 const homepageRouter = require("./routes/homepage");
 
 const app = express();
@@ -26,12 +27,12 @@ const tokenChecker = (req, res, next) => {
   if(authHeader) {
     token = authHeader.slice(7)
   }
-
   JWT.verify(token, process.env.JWT_SECRET, (err, payload) => {
     if(err) {
       console.log(err)
       res.status(401).json({message: "auth error"});
     } else {
+      console.log("payload", payload)
       req.user_id = payload.user_id;
       next();
     }
@@ -41,6 +42,7 @@ const tokenChecker = (req, res, next) => {
 // route setup
 app.use("/", homepageRouter);
 app.use("/posts", tokenChecker, postsRouter);
+app.use("/comments", tokenChecker, commentsRouter)
 app.use("/tokens", authenticationRouter);
 app.use("/users", usersRouter);
 

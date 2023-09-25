@@ -8,6 +8,7 @@ const AuthenticationController = {
     const password = req.body.password;
 
     User.findOne({ email: email }).then((user) => {
+      console.log("first user", user)
       if (!user) {
         console.log("auth error: user not found")
         res.status(401).json({ message: "auth error" });
@@ -15,6 +16,7 @@ const AuthenticationController = {
         console.log("auth error: passwords do not match")
         res.status(401).json({ message: "auth error" });
       } else {
+        console.log("user", user.id)
         const token = TokenGenerator.jsonwebtoken(user.id)
         res.status(201).json({ token: token, message: "OK" });
       }
