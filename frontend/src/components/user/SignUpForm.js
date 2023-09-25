@@ -9,6 +9,7 @@ import eye_closed from '../../images/View_hide.svg';
 
 const SignUpForm = ({ navigate }) => {
 
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -22,7 +23,7 @@ const SignUpForm = ({ navigate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email: email, password: password})
+      body: JSON.stringify({username: username, email: email, password: password})
     })
       .then(response => {
         if(response.status === 201) {
@@ -31,6 +32,10 @@ const SignUpForm = ({ navigate }) => {
           navigate('/signup')
         }
       })
+  }
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value)
   }
 
   const handleEmailChange = (event) => {
@@ -88,6 +93,9 @@ const SignUpForm = ({ navigate }) => {
           <div className="container-panel container-panel_left">
             <form className="form" onSubmit={handleSubmit}>
               <h3 className="title">Sign Up</h3>
+              <div className="form__input-box">
+              <input className="form__input" placeholder="Username" id="username" type='text' value={ username } onChange={handleUsernameChange} /> 
+              </div>
               <div className="form__input-box">
                 <img className="form__icon" src={email_icon} />
                 <input className="form__input" placeholder="Email" id="email" type='text' value={ email } onChange={handleEmailChange} />

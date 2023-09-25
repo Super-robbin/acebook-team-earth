@@ -2,28 +2,17 @@ import React, { useState, useEffect } from 'react';
 import CommentForm from '../comment/CommentForm';
 import Comment from '../comment/Comment';
 
-const Post = ({post, token, setToken}) => {
-  // const [comments, setComments] = useState([]);
+const Post = ({post, token}) => {
 
-  // useEffect(() => {
-  //   if(token) {
-  //     fetch("/comments", {
-  //       headers: {
-  //         'Authorization': `Bearer ${token}`
-  //       }
-  //     })
-  //       .then(response => response.json())
-  //       .then(async data => {
-  //         window.localStorage.setItem("token", data.token)
-  //         setToken(window.localStorage.getItem("token"))
-  //         setComments(data.comments);
-  //       })
-  //   }
-  // }, [])
+  const postedAt = new Date(post.createdAt)
+  const postedAtFormatted = postedAt.toLocaleString([], {day:'2-digit', month:'short', year: '2-digit' ,hour: '2-digit',minute:'2-digit'});
 
   return(
     <>
-      <article data-cy="post" key={ post._id }>{ post.message }</article>
+      <article data-cy="post" key={ post._id }>{ post.message }</article> 
+      <div>
+        <p classname="datetime">{postedAtFormatted}</p>
+      </div>
       <CommentForm token ={ token } post={ post }/>
       <div>
         {post.comments.map(
