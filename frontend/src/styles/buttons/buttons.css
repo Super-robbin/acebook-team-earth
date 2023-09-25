@@ -96,3 +96,9 @@
 .button__log-out:active {
 	transform: translate(2px ,2px);
 }
+
+.button__toggle {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
