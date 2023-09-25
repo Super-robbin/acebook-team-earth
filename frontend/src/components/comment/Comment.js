@@ -4,7 +4,7 @@ const Comment = ({ comment }) => {
     return (
         <>
             <div key={ comment._id }>
-                <p>{comment.comment}</p>
+                <p>{comment.content}</p>
             </div>
         </>
     )
