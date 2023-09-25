@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Post from '../post/Post'
-import PostForm from '../post/PostForm'
+import Post from '../post/Post';
+import PostForm from '../post/PostForm';
+import FeedHeader from '../feed_header/FeedHeader';
 
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
@@ -27,9 +28,12 @@ const Feed = ({ navigate }) => {
     window.localStorage.removeItem("token")
     navigate('/login')
   }
+  
+  
     if(token) {
       return(
         <>
+          <FeedHeader logout={logout} />
           <h2>Posts</h2>
           <PostForm token={ token } setToken={ setToken }/>
             <button onClick={logout}>
