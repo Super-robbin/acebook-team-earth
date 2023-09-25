@@ -10,9 +10,12 @@ const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    let error = 'This user does not exist'
+    setError(error);
 
     let response = await fetch( '/tokens', {
       method: 'post',
@@ -35,16 +38,24 @@ const LogInForm = ({ navigate }) => {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
+    if (event.target.value === "")
+    setError("")
   }
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value)
+    if (event.target.value === "")
+    setError("")
   }
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
   }
 
+  // const userChecker = () => {
+  //   let error = []
+  //   if 
+  // }
 
     return (
       <>
@@ -64,6 +75,11 @@ const LogInForm = ({ navigate }) => {
               <button className="form__button form__ghost" id='submit' type="submit">Log In
 
               </button>
+              <div className="error__container">
+                {error ? (<p className="error_message">
+                    {error}
+                  </p>) : null}
+              </div>
             </form>
           </div>
           <div className="container-panel container-panel_right">
