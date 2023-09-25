@@ -18,11 +18,18 @@ const Feed = ({ navigate }) => {
         .then(async data => {
           window.localStorage.setItem("token", data.token)
           setToken(window.localStorage.getItem("token"))
+          sortByDate(data.posts)
           setPosts(data.posts);
+         
         })
     }
   }, [])
     
+  const sortByDate = (array) => {
+    array.sort((a,b) => { 
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+  }
 
   const logout = () => {
     window.localStorage.removeItem("token")
