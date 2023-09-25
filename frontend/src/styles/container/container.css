@@ -75,10 +75,10 @@
     border: 1.5px solid #2d79f3;
 }
 
-/* .icon__password {
+.form__icon{
     width: 20px;
     height: 20px;
-} */
+}
 
 .form__button {
     cursor: pointer;
@@ -115,4 +115,11 @@
 	letter-spacing: 0.5px;
     margin: 20px 0 30px;
     inline-size: 20rem;
+}
+
+.header__feed {
+    padding: 1rem;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
 }

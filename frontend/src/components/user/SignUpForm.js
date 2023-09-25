@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import '../../styles/container/container.css';
+import lock from '../../images/lock-03.svg';
+import email_icon from '../../images/email.svg';
 
 
 const SignUpForm = ({ navigate }) => {
@@ -43,10 +45,11 @@ const SignUpForm = ({ navigate }) => {
             <form className="form" onSubmit={handleSubmit}>
               <h3 className="title">Sign Up</h3>
               <div className="form__input-box">
+                <img className="form__icon" src={email_icon} />
                 <input className="form__input" placeholder="Email" id="email" type='text' value={ email } onChange={handleEmailChange} />
               </div>
               <div className="form__input-box">
-                <img className="icon__password" />
+                <img className="form__icon" src={lock} />
                 <input className="form__input" placeholder="Password" id="password" type='password' value={ password } onChange={handlePasswordChange} />
               </div>
             <button className="form__button form__ghost" id='submit' type="submit">Sign Up
@@ -57,7 +60,8 @@ const SignUpForm = ({ navigate }) => {
           <div className="container-panel container-panel_right">
             <h3 className="title">Hello, Friend!</h3>
             <p className="greeting-text">Enter your personal details and start journey with us</p>
-            <p>Already have an account? </p><Link className='button ghost' to={"/login"}>Log In</Link>
+            <p>Already have an account? </p>
+            <Link className='button ghost' to={"/login"}>Log In</Link>
           </div>
         </section>
       </>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Post from '../post/Post'
-import PostForm from '../post/PostForm'
+import Post from '../post/Post';
+import PostForm from '../post/PostForm';
+import FeedHeader from '../feed_header/FeedHeader';
 
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
@@ -31,11 +32,9 @@ const Feed = ({ navigate }) => {
     if(token) {
       return(
         <>
+          <FeedHeader logout={logout} />
           <h2>Posts</h2>
           <PostForm token={ token }/>
-            <button onClick={logout}>
-              Logout
-            </button>
           <div id='feed' role="feed">
               {posts.map(
                 (post) => ( <Post post={ post } key={ post._id } /> )

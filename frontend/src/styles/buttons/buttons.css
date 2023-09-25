@@ -1,6 +1,7 @@
 .button__container {
 	display: flex;
 	justify-content: space-around;
+
 	width: 30vw;
 }
 
@@ -32,11 +33,66 @@
 	outline: none;
 }
 
-/* .nav-button {
-	border-style: solid;
-	border-color: #FFFFFF;
-	color: #FFFFFF;
-	text-transform: uppercase;
-	border-radius: 20px;
-	padding: .5rem 2rem;
-} */
+.button__log-out {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 45px;
+	height: 45px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition-duration: .3s;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+	background-color: rgb(255, 65, 65);
+	
+}
+
+.sign {
+	height: 17px;
+	width: 100%;
+	transition-duration: .3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.text {
+	position: absolute;
+	right: 0%;
+	width: 0%;
+	opacity: 0;
+	color: white;
+	font-size: 1.2em;
+	font-weight: 600;
+	transition-duration: .3s;
+	}
+
+  /* Hover effect on button */
+.button__log-out:hover {
+	width: 125px;
+	border-radius: 40px;
+	transition-duration: .3s;
+}
+.button__log-out:hover .sign {
+	backface-visibility: hidden;
+	width: 30%;
+	transition-duration: .3s;
+	padding-left: 20px;
+}
+
+  /* Hover effect on the text */
+.button__log-out:hover .text {
+	opacity: 1;
+	width: 70%;
+	transition-duration: .3s;
+	padding-right: 10px;
+	backface-visibility: hidden;
+}
+
+  /* Button click effect */
+.button__log-out:active {
+	transform: translate(2px ,2px);
+}
