@@ -5,7 +5,7 @@ import Comment from '../comment/Comment';
 const Post = ({post, token}) => {
 
   const postedAt = new Date(post.createdAt)
-  const postedAtFormatted = postedAt.toLocaleString([], {day:'2-digit', month:'2-digit', year: '2-digit' ,hour: '2-digit',minute:'2-digit'});
+  const postedAtFormatted = postedAt.toLocaleString([], {day:'2-digit', month:'short', year: '2-digit' ,hour: '2-digit',minute:'2-digit'});
 
   return(
     <>
