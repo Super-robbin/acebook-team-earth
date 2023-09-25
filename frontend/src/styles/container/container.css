@@ -55,6 +55,8 @@
     display: flex;
     align-items: center;
     padding-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 3px;
     transition: 0.2s ease-in-out;
 }
 
@@ -122,4 +124,15 @@
     flex-direction: row;
     display: flex;
     justify-content: space-between;
+}
+
+.error__container {
+    position: relative;
+}
+
+.error_message {
+    position: absolute;
+    margin-top: -18px;
+    font-size: 14px;
+    color: #FF4B2B;
 }
