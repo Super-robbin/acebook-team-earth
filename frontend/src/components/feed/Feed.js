@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Post from '../post/Post';
 import PostForm from '../post/PostForm';
 import FeedHeader from '../feed_header/FeedHeader';
+import '../../styles/feed/feed.css';
+import postPic from '../../images/Vector.svg';
 
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
@@ -20,7 +22,7 @@ const Feed = ({ navigate }) => {
           setToken(window.localStorage.getItem("token"))
           sortByDate(data.posts)
           setPosts(data.posts);
-        
+
         })
     }
   }, [])
@@ -41,13 +43,18 @@ const Feed = ({ navigate }) => {
       return(
         <>
           <FeedHeader logout={logout} />
-          <h2>Posts</h2>
-          <PostForm token={ token } setToken={ setToken }/>
-          <div id='feed' role="feed">
-              {posts.map(
-                (post) => ( <Post post={ post } key={ post._id } token={token} setToken={setToken} /> )
-              )}
-          </div>
+          <section className="feed">
+            <div className="feed__post-title_container">
+              <img src={postPic} alt="speaker-icon" />
+              <h2>Posts feed</h2>
+            </div>
+            <div className="post__container" id='feed' role="feed">
+            <PostForm token={ token } setToken={ setToken }/>
+                {posts.map(
+                  (post) => ( <Post post={ post } key={ post._id } token={token} setToken={setToken} /> )
+                )}
+            </div>
+          </section>
         </>
       )
     } else {
