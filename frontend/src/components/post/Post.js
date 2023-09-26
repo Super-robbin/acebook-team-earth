@@ -5,12 +5,15 @@ import '../../styles/card/card.css';
 import heart from '../../images/heart-filled.svg';
 import heartOut from '../../images/heart_outline.svg';
 import bubble from '../../images/bubble.svg'
-import LikeButton from '../likes/Likes'
 
-const Post = ({post, token}) => {
+const Post = ({post, token, handleAddLike}) => {
 
   const postedAt = new Date(post.createdAt)
   const postedAtFormatted = postedAt.toLocaleString([], {day:'2-digit', month:'short', year: '2-digit' ,hour: '2-digit',minute:'2-digit'});
+
+  function handleLikeClick() {
+    handleAddLike(post)
+  }
 
   return(
     <>
@@ -27,11 +30,10 @@ const Post = ({post, token}) => {
         <div className="card__info">
           <img className="card__item" src={bubble} alt="comment-icon" />
           <p className="card__item">0</p>
-          <img className="card__item" src={heartOut} alt="like-icon" />
-          <p className="card__item"> 0</p>
+          <img onClick={handleLikeClick} className="card__item" src={heartOut} alt="like-icon" />
+          <p className="card__item">{post.likes.length}</p>
         </div>
       </div>
-      <LikeButton />
 
       <CommentForm token ={ token } post={ post }/>
       <div>

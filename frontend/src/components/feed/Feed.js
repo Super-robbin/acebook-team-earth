@@ -27,6 +27,26 @@ const Feed = ({ navigate }) => {
         })
     }
   }, [])
+
+  const handleAddLike = (post) => {
+    fetch(`/posts/${post._id}/like`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => {
+      if (res.status != 201) {
+        return Promise.reject('can`t like the post')
+      }
+      return res.json()
+    })
+    .then((data) => {
+      const newPost = data.post
+      setPosts((posts) => posts.map((p) => (p._id === newPost._id ? newPost : p)))
+    })
+  }
     
   const sortByDate = (array) => {
     array.sort((a,b) => { 
@@ -52,7 +72,7 @@ const Feed = ({ navigate }) => {
             <div className="post__container" id='feed' role="feed">
             <PostForm token={ token } setToken={ setToken }/>
                 {posts.map(
-                  (post) => ( <Post post={ post } key={ post._id } token={token} setToken={setToken} /> )
+                  (post) => ( <Post post={ post } key={ post._id } token={token} setToken={setToken} handleAddLike={handleAddLike} /> )
                 )}
             </div>
           </section>
