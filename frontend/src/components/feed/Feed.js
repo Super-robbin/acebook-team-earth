@@ -22,6 +22,7 @@ const Feed = ({ navigate }) => {
           setToken(window.localStorage.getItem("token"))
           sortByDate(data.posts)
           setPosts(data.posts);
+
         })
     }
   }, [])
