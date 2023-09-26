@@ -63,7 +63,7 @@ const SignUpForm = ({ navigate }) => {
     const errors = [];
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     if (!emailRegex.test(email)) {
-      errors.push('Please enter a valid email address. Ex: example@mail.com');
+      errors.push('Please enter a valid email address. Ex: example@email.com');
     }
     if (email.trim() === '') {
       // Remove error message if the input is empty or contains only whitespace
