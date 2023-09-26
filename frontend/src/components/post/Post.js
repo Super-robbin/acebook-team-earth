@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import CommentForm from '../comment/CommentForm';
 import Comment from '../comment/Comment';
 
@@ -11,7 +10,7 @@ const Post = ({post, token}) => {
     <>
       <article data-cy="post" key={ post._id }>{ post.message }</article> 
       <div>
-        <p classname="datetime">{postedAtFormatted}</p>
+        <p className="datetime">{postedAtFormatted}</p>
       </div>
       <CommentForm token ={ token } post={ post }/>
       <div>

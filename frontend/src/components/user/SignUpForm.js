@@ -17,7 +17,6 @@ const SignUpForm = ({ navigate }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     fetch( '/users', {
       method: 'post',
       headers: {
@@ -29,8 +28,12 @@ const SignUpForm = ({ navigate }) => {
         if(response.status === 201) {
           navigate('/login')
         } else {
-          navigate('/signup')
+          return response.json()
         }
+      }).then((data) => {
+        console.log(data.message)
+        setErrors({ ...errors, signUp: data.message });
+      
       })
   }
 
@@ -60,7 +63,7 @@ const SignUpForm = ({ navigate }) => {
     const errors = [];
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     if (!emailRegex.test(email)) {
-      errors.push('Please enter a valid email address. Ex: example@mail.com');
+      errors.push('Please enter a valid email address. Ex: example@email.com');
     }
     if (email.trim() === '') {
       // Remove error message if the input is empty or contains only whitespace
@@ -113,6 +116,9 @@ const SignUpForm = ({ navigate }) => {
               <div className="error__container">
                 {errors.password ? (<p className="error_message">
                     {errors.password}
+                  </p>) : null}
+                  {errors.signUp ? (<p className="error_message">
+                    {errors.signUp}
                   </p>) : null}
               </div>
             <button className="form__button form__ghost" id='submit' type="submit">Sign Up
