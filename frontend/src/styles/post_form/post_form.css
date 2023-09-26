@@ -1,0 +1,18 @@
+.post_form {
+    position: relative;
+    width: 34rem;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    border-radius: 2rem;
+    margin-top: 2rem;
+}
+
+.post_form__textarea {
+    width: 100%;
+    resize: none;
+    border: none;
+}
+
+.post_form__textarea:focus { 
+    outline: none; 
+}

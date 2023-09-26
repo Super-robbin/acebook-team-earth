@@ -38,7 +38,10 @@ const SignUpForm = ({ navigate }) => {
   }
 
   const handleUsernameChange = (event) => {
-    setUsername(event.target.value)
+    const newUsername = event.target.value;
+    const usernameErrors = validateUsername(newUsername);
+    setErrors({ ...errors, username: usernameErrors });
+    setUsername(newUsername);
   }
 
   const handleEmailChange = (event) => {
@@ -59,6 +62,15 @@ const SignUpForm = ({ navigate }) => {
     setShowPassword(!showPassword);
   }
 
+  const validateUsername = (username) => {
+    const errors = [];
+    if (username.length < 2) {
+      console.log(username.length)
+      errors.push('Username should has at least 2 characters')
+    }
+    return errors
+  }
+
   const validateEmail = (email) => {
     const errors = [];
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -66,7 +78,6 @@ const SignUpForm = ({ navigate }) => {
       errors.push('Please enter a valid email address. Ex: example@mail.com');
     }
     if (email.trim() === '') {
-      // Remove error message if the input is empty or contains only whitespace
       errors.length = 0;
     }
     return errors;
@@ -99,14 +110,21 @@ const SignUpForm = ({ navigate }) => {
               <div className="form__input-box">
               <input className="form__input" placeholder="Username" id="username" type='text' value={ username } onChange={handleUsernameChange} /> 
               </div>
+              <div className="error__container">
+                {errors.username ? (
+                      <p className="error_message">
+                        {errors.username}
+                      </p>) : null}
+              </div>
               <div className="form__input-box">
                 <img className="form__icon" src={email_icon} />
                 <input className="form__input" placeholder="Email" id="email" type='text' value={ email } onChange={handleEmailChange} />
               </div>
               <div className="error__container">
-                {errors.email ? (<p className="error_message">
-                    {errors.email}
-                  </p>) : null}
+                {errors.email ? (
+                    <p className="error_message">
+                      {errors.email}
+                    </p>) : null}
               </div>
               <div className="form__input-box">
                 <img className="form__icon" src={lock} />
@@ -114,15 +132,20 @@ const SignUpForm = ({ navigate }) => {
                 <img className="button__toggle" src={showPassword ? eye_opened : eye_closed} onClick={togglePassword}/>
               </div>
               <div className="error__container">
-                {errors.password ? (<p className="error_message">
-                    {errors.password}
-                  </p>) : null}
-                  {errors.signUp ? (<p className="error_message">
-                    {errors.signUp}
-                  </p>) : null}
+                {errors.password ? (
+                    <p className="error_message">
+                      {errors.password}
+                    </p>) : null}
               </div>
-            <button className="form__button form__ghost" id='submit' type="submit">Sign Up
+            <button className={`form__button form__ghost ${errors.length > 0 ? 'form__disabled' : ''}`} id='submit' type="submit">
+              Sign Up
             </button>
+              {errors.signUp ? (
+                <div className="error-auth">
+                  <p className="error-auth__message">
+                    {errors.signUp}
+                  </p>
+                </div>) : null}
           </form>
           </div>
           <div className="container-panel container-panel_right">

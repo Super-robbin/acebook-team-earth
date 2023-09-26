@@ -10,12 +10,10 @@ const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let error = 'This user does not exist'
-    setError(error);
 
     let response = await fetch( '/tokens', {
       method: 'post',
@@ -26,8 +24,9 @@ const LogInForm = ({ navigate }) => {
     })
 
     if(response.status !== 201) {
-      console.log("yay")
-      navigate('/login')
+      console.log("yay");
+      let newError = 'This user does not exist.'
+      setError(newError);
     } else {
       console.log("oop")
       let data = await response.json()
@@ -52,11 +51,6 @@ const LogInForm = ({ navigate }) => {
     setShowPassword(!showPassword);
   }
 
-  // const userChecker = () => {
-  //   let error = []
-  //   if 
-  // }
-
     return (
       <>
         <section className="container">
@@ -75,11 +69,9 @@ const LogInForm = ({ navigate }) => {
               <button className="form__button form__ghost" id='submit' type="submit">Log In
 
               </button>
-              <div className="error__container">
-                {error ? (<p className="error_message">
-                    {error}
-                  </p>) : null}
-              </div>
+                {error ? (<div className="error-auth">
+                  <p className="error-auth__message">{error}</p>
+                </div>) : null}
             </form>
           </div>
           <div className="container-panel container-panel_right">

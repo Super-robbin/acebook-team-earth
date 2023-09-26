@@ -56,7 +56,7 @@
     align-items: center;
     padding-left: 10px;
     margin-bottom: 5px;
-    margin-top: 3px;
+    /* margin-top: 3px; */
     transition: 0.2s ease-in-out;
 }
 
@@ -102,6 +102,10 @@
 	border-color: #FF416C;
 }
 
+.form__disabled {
+    opacity: 0.5;
+}
+
 .form__button:active {
 	transform: scale(0.95);
 }
@@ -120,10 +124,12 @@
 }
 
 .header__feed {
-    padding: 1rem;
+    background: #f6f5f7;
+    padding: 1rem 2rem;
     flex-direction: row;
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 }
 
 .error__container {
@@ -133,6 +139,22 @@
 .error_message {
     position: absolute;
     margin-top: -18px;
-    font-size: 14px;
+    font-size: 12px;
     color: #FF4B2B;
+}
+
+.error-auth {
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    background: #FCE8DB;
+    border-radius: 8px;
+    border: 1px solid #EF665B;
+    box-shadow: 0px 0px 5px -3px #111;
+    color: #723531;
+    margin: auto;
+}
+
+.error-auth__message {
+    margin: 0;
 }
