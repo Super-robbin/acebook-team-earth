@@ -5,8 +5,8 @@ const UsersController = {
     const email = req.body.email;
     User.findOne({ email: email }).then((user) => {
       if (user) {
-        console.log("auth error: user already existing");
-        res.status(401).json({ message: "User already existing! Please login!" });
+        console.log("auth error: user already exists");
+        res.status(401).json({ message: "User already exists! Please login!" });
       } else {
         const user = new User(req.body);
         user.save((err) => {

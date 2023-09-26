@@ -10,7 +10,7 @@ const PostsController = require("../controllers/posts");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.resolve(__dirname, '../../public/images')); 
+        cb(null, './public/images'); 
     },
     filename: (req, file, cb) => {
         cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));
