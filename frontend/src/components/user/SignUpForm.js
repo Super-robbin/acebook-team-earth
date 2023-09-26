@@ -12,6 +12,7 @@ const SignUpForm = ({ navigate }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [picture, setPicture] = useState("");
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -22,7 +23,7 @@ const SignUpForm = ({ navigate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({username: username, email: email, password: password})
+      body: JSON.stringify({ username: username, email: email, password: password, picture: picture })
     })
       .then(response => {
         if(response.status === 201) {
@@ -53,6 +54,10 @@ const SignUpForm = ({ navigate }) => {
     const passwordErrors = validatePassword(newPassword);
     setErrors({ ...errors, password: passwordErrors });
     setPassword(newPassword);
+  }
+
+  const handlePictureChange = (event) => {
+    setPicture(event.target.value)
   }
 
   const togglePassword = () => {
@@ -120,6 +125,9 @@ const SignUpForm = ({ navigate }) => {
                   {errors.signUp ? (<p className="error_message">
                     {errors.signUp}
                   </p>) : null}
+              </div>
+              <div className="form__input-box">
+              <input className="form__input" placeholder="Picture URL" id="picture" type='text' value={ picture } onChange={handlePictureChange} /> 
               </div>
             <button className="form__button form__ghost" id='submit' type="submit">Sign Up
             </button>

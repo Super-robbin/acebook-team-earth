@@ -10,6 +10,8 @@ const Post = ({post, token}) => {
     <>
       <article data-cy="post" key={ post._id }>{ post.message }</article> 
       <div>
+        <img className="picture" src={post.user.picture} alt="profile"></img>
+        <p className="username">{post.user.username}</p>
         <p className="datetime">{postedAtFormatted}</p>
       </div>
       <CommentForm token ={ token } post={ post }/>
