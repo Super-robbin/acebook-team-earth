@@ -9,7 +9,7 @@ const FeedHeader = ({ logout }) => {
             <header className="header__feed">
                 <h1>ACEBOOK</h1>
                 <button className="button__log-out" onClick={logout}>
-                    <img className="sign" src={logout_icon} />
+                    <img className="sign" src={logout_icon} alt="logout-icon" />
                     <div className="text">Log out</div>
                 </button>
             </header>

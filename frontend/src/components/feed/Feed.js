@@ -44,7 +44,7 @@ const Feed = ({ navigate }) => {
           <FeedHeader logout={logout} />
           <section className="feed">
             <div className="feed__post-title_container">
-              <img src={postPic}/>
+              <img src={postPic} alt="speaker-icon" />
               <h2>Posts feed</h2>
             </div>
             <div className="post__container" id='feed' role="feed">

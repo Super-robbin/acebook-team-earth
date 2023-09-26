@@ -44,7 +44,7 @@ const PostForm = ({ token }) => {
             value={message}
             onChange={handleMessageChange}
           />
-          <button className="button__send" role="create-button" id="submit" type="submit"><img src={send} /></button>
+          <button className="button__send" role="create-button" id="submit" type="submit"><img src={send} alt="airplane-icon" /></button>
         </div>
       </form>
     </section>
