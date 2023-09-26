@@ -6,14 +6,9 @@ import send from '../../images/send.svg'
 const PostForm = ({ token }) => {
   const [message, setMessage] = useState("");
   const [image, setImage] = useState("");
-  console.log(image);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (message.trim() === '') {
-      return message;
-    }
 
     const formData = new FormData (); 
     formData.append('message', message);
@@ -31,7 +26,7 @@ const PostForm = ({ token }) => {
         let data = await response.json();
         window.localStorage.setItem("token", data.token);
         window.location.reload();
-        
+
       } 
       
   };
