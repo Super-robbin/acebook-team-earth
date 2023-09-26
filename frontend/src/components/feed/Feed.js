@@ -3,6 +3,7 @@ import Post from '../post/Post';
 import PostForm from '../post/PostForm';
 import FeedHeader from '../feed_header/FeedHeader';
 
+
 const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));

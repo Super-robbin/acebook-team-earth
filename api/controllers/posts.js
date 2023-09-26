@@ -4,7 +4,10 @@ const TokenGenerator = require("../lib/token_generator");
 
 const PostsController = {
   Index: (req, res) => {
-    Post.find().populate("comments").exec((err, posts) => {
+    Post.find()
+    .populate("comments")
+    .populate("likes")
+    .exec((err, posts) => {
       if (err) {
         throw err;
       }
@@ -13,12 +16,12 @@ const PostsController = {
     });
   },
   Create: (req, res) => {
+   
     const post = new Post({ message: req.body.message, user: req.user_id });
     post.save((err) => {
       if (err) {
         throw err;
       }
-
       const token = TokenGenerator.jsonwebtoken(req.user_id);
       res.status(201).json({ message: "OK", token: token });
     });
