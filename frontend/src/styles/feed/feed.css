@@ -1,0 +1,16 @@
+.feed {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem 2rem;
+}
+
+.feed__post-title_container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.post__container {
+    margin: 1rem auto;
+}
