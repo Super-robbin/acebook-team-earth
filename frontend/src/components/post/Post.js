@@ -15,9 +15,9 @@ const Post = ({post, token}) => {
     <>
       <div className="card" data-cy="post" key={ post._id }>
         <div className="card__container">
-          <img className="card__img" alt="user pic"/>
+          <img className="card__img" alt="user pic" src={post.user.picture} />
           <div className="card__user-info">
-            <p className="card__text_name">user name</p>
+            <p className="card__text_name">{post.user.username}</p>
             <p className="card__text_time" >{postedAtFormatted}</p>
           </div>
         </div>

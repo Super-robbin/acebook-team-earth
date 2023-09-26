@@ -4,7 +4,7 @@ const TokenGenerator = require("../lib/token_generator");
 
 const PostsController = {
   Index: (req, res) => {
-    Post.find().populate("comments").exec((err, posts) => {
+    Post.find().populate("comments").populate("user").exec((err, posts) => {
       if (err) {
         throw err;
       }

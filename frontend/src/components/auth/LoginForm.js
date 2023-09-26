@@ -14,6 +14,8 @@ const LogInForm = ({ navigate }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    let error = 'User not found'
+    setError(error);
 
     let response = await fetch( '/tokens', {
       method: 'post',
@@ -66,9 +68,7 @@ const LogInForm = ({ navigate }) => {
               <input className="form__input" placeholder='Password' id="password" type={showPassword ? "text" : "password"} value={ password } onChange={handlePasswordChange} />
               <img className="button__toggle" src={showPassword ? eye_opened : eye_closed} onClick={togglePassword}/>
               </div>
-              <button className="form__button form__ghost" id='submit' type="submit">Log In
-
-              </button>
+              <button className="form__button form__ghost" id='submit' type="submit">Log In</button>
                 {error ? (<div className="error-auth">
                   <p className="error-auth__message">{error}</p>
                 </div>) : null}

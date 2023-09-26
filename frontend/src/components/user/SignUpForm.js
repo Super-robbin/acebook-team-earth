@@ -12,6 +12,7 @@ const SignUpForm = ({ navigate }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [picture, setPicture] = useState("");
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -22,7 +23,7 @@ const SignUpForm = ({ navigate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({username: username, email: email, password: password})
+      body: JSON.stringify({ username: username, email: email, password: password, picture: picture })
     })
       .then(response => {
         if(response.status === 201) {
@@ -58,6 +59,10 @@ const SignUpForm = ({ navigate }) => {
     setPassword(newPassword);
   }
 
+  const handlePictureChange = (event) => {
+    setPicture(event.target.value)
+  }
+
   const togglePassword = () => {
     setShowPassword(!showPassword);
   }
@@ -75,7 +80,7 @@ const SignUpForm = ({ navigate }) => {
     const errors = [];
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     if (!emailRegex.test(email)) {
-      errors.push('Please enter a valid email address. Ex: example@mail.com');
+      errors.push('Please enter a valid email address. Ex: example@email.com');
     }
     if (email.trim() === '') {
       errors.length = 0;
@@ -137,8 +142,10 @@ const SignUpForm = ({ navigate }) => {
                       {errors.password}
                     </p>) : null}
               </div>
-            <button className={`form__button form__ghost ${errors.length > 0 ? 'form__disabled' : ''}`} id='submit' type="submit">
-              Sign Up
+              <div className="form__input-box">
+              <input className="form__input" placeholder="Picture URL" id="picture" type='text' value={ picture } onChange={handlePictureChange} /> 
+              </div>
+            <button className="form__button form__ghost" id='submit' type="submit">Sign Up
             </button>
               {errors.signUp ? (
                 <div className="error-auth">
