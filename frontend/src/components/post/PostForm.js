@@ -31,13 +31,13 @@ const PostForm = ({ token }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <input
+        <textarea
           placeholder="Enter your message here.."
           id="message"
           type="text"
           value={message}
           onChange={handleMessageChange}
-        />
+        ></textarea>
         <input role="create-button" id="submit" type="submit" value="Create" />
       </div>
     </form>

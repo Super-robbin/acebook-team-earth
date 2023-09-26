@@ -43,9 +43,6 @@ const Feed = ({ navigate }) => {
           <FeedHeader logout={logout} />
           <h2>Posts</h2>
           <PostForm token={ token } setToken={ setToken }/>
-            <button onClick={logout}>
-              Logout
-            </button>
           <div id='feed' role="feed">
               {posts.map(
                 (post) => ( <Post post={ post } key={ post._id } token={token} setToken={setToken} /> )

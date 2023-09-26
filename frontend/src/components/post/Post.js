@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import CommentForm from '../comment/CommentForm';
 import Comment from '../comment/Comment';
 
