@@ -15,12 +15,13 @@ const Post = ({post, token}) => {
     <>
       <div className="card" data-cy="post" key={ post._id }>
         <div className="card__container">
-          <img className="card__img" alt="user pic" src={post.user.picture} />
+          {post.user.picture ? <img className="card__img" alt="user pic" src={post.user.picture}/> : "no img" }
           <div className="card__user-info">
             <p className="card__text_name">{post.user.username}</p>
             <p className="card__text_time" >{postedAtFormatted}</p>
           </div>
         </div>
+        {post.image && <img src={`/images/${post.image}`} alt="post-img" width='100%'/>}
         <p className="card__text">{ post.message }</p>
         <div className="card__info">
           <img className="card__item" src={bubble} alt="comment-icon" />
