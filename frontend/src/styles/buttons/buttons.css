@@ -111,6 +111,14 @@
     right: 15px;
 }
 
+.button__send_comment {
+	right: -5px;
+}
+
+.disabled {
+	display: none;
+}
+
 input[type=file]::file-selector-button {
 	background-color: unset;
 	border: none;
