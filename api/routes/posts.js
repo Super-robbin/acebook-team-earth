@@ -32,5 +32,6 @@ let upload = multer({ storage, fileFilter });
 
 router.get("/", PostsController.Index);
 router.post("/", upload.single('image'), PostsController.Create);
+router.post("/:post_id/like", PostsController.AddLike);
 
 module.exports = router;
