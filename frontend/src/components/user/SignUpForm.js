@@ -6,7 +6,6 @@ import email_icon from '../../images/email.svg';
 import eye_opened from '../../images/View.svg';
 import eye_closed from '../../images/View_hide.svg';
 
-
 const SignUpForm = ({ navigate }) => {
 
   const [username, setUsername] = useState("");
@@ -60,7 +59,7 @@ const SignUpForm = ({ navigate }) => {
   }
 
   const handlePictureChange = (event) => {
-    setPicture(event.target.value)
+    setPicture(event.target.value);
   }
 
   const togglePassword = () => {
