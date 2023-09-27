@@ -1,6 +1,16 @@
 const User = require("../models/user");
 
 const UsersController = {
+  Index: (req, res) => {
+    const user = {id: req.params.user_id, username: req.username, picture: req.picture}
+    User.find((err, users) => {
+      if (err) {
+        throw err;
+      }
+      res.status(200).json({ users: users})
+    })
+  },
+
   Create: (req, res) => {
     const email = req.body.email;
     User.findOne({ email: email }).then((user) => {

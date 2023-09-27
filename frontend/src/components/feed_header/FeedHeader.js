@@ -3,7 +3,7 @@ import '../../styles/buttons/buttons.css';
 import '../../styles/container/container.css';
 import logout_icon from '../../images/logout.svg';
 
-const FeedHeader = ({ logout }) => {
+const FeedHeader = ({ token, logout }) => {
     return (
         <>
             <header className="header__feed">

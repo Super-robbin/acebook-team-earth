@@ -6,10 +6,10 @@ import '../../styles/feed/feed.css';
 import postPic from '../../images/Vector.svg';
 
 
-const Feed = ({ navigate }) => {
+const Feed = ({ navigate, user }) => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
-
+  console.log(user)
   useEffect(() => {
     if(token) {
       fetch("/posts", {
@@ -63,7 +63,7 @@ const Feed = ({ navigate }) => {
     if(token) {
       return(
         <>
-          <FeedHeader logout={logout} />
+          <FeedHeader token={ token } user={ user } logout={logout} />
           <section className="feed">
             <div className="feed__post-title_container">
               <img src={postPic} alt="speaker-icon" />
