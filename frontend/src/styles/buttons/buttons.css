@@ -110,3 +110,9 @@
     bottom: 15px;
     right: 15px;
 }
+
+input[type=file]::file-selector-button {
+	background-color: unset;
+	border: none;
+	display: none;
+}

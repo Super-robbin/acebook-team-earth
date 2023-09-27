@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../../styles/post_form/post_form.css';
 import '../../styles/buttons/buttons.css';
 import send from '../../images/send.svg'
+import fileImg from '../../images/Img_box_fill.svg'
 
 const PostForm = ({ token }) => {
   const [message, setMessage] = useState("");
@@ -52,7 +53,10 @@ const PostForm = ({ token }) => {
             value={message}
             onChange={handleMessageChange}
           />
-            <input type="file" accept=".png, .jpg, .jpeg" name="image" onChange={handleImageChange}></input>
+            <label for="fileUpload">
+              <img src={fileImg} alt="choose file" />
+              <input className="button__file" id="fileUpload" type="file" accept=".png, .jpg, .jpeg" name="image" onChange={handleImageChange} />
+            </label>
           <button className="button__send" role="create-button" id="submit" type="submit"><img src={send} alt="airplane-icon" /></button>
         </div>
       </form>
