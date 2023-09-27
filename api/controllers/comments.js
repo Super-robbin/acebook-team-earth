@@ -4,7 +4,7 @@ const TokenGenerator = require("../lib/token_generator");
 
 const CommentsController = {
   Index: (req, res) => {
-    Comment.find((err, comments) => {
+    Comment.find().populate("user").exec((err, comments) => {
       if (err) {
         throw err;
       }

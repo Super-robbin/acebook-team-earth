@@ -116,3 +116,13 @@ input[type=file]::file-selector-button {
 	border: none;
 	display: none;
 }
+
+.button__label {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.button__img {
+	margin-right: 5px;
+}

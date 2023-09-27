@@ -27,7 +27,6 @@ const PostForm = ({ token }) => {
         let data = await response.json();
         window.localStorage.setItem("token", data.token);
         window.location.reload();
-
       } 
       
   };
@@ -53,8 +52,8 @@ const PostForm = ({ token }) => {
             value={message}
             onChange={handleMessageChange}
           />
-            <label for="fileUpload">
-              <img src={fileImg} alt="choose file" />
+            <label className="button__label" htmlFor="fileUpload">
+              <img className="button__img" src={fileImg} alt="choose file" />
               <input className="button__file" id="fileUpload" type="file" accept=".png, .jpg, .jpeg" name="image" onChange={handleImageChange} />
             </label>
           <button className="button__send" role="create-button" id="submit" type="submit"><img src={send} alt="airplane-icon" /></button>
