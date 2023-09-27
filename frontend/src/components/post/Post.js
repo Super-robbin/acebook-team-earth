@@ -5,6 +5,7 @@ import '../../styles/card/card.css';
 import heart from '../../images/heart-filled.svg';
 import heartOut from '../../images/heart_outline.svg';
 import bubble from '../../images/bubble.svg'
+import defaultProfilePic from '../../images/default_profile_pic.jpg'
 
 const Post = ({post, token, handleAddLike}) => {
 
@@ -19,7 +20,7 @@ const Post = ({post, token, handleAddLike}) => {
     <>
       <div className="card" data-cy="post" key={ post._id }>
         <div className="card__container">
-          {post.user.picture ? <img className="card__img" alt="user pic" src={post.user.picture}/> : "no img" }
+          <img className="card__img" alt="user pic" src={post.user.picture ? post.user.picture : defaultProfilePic}></img>
           <div className="card__user-info">
             <p className="card__text_name">{post.user.username}</p>
             <p className="card__text_time" >{postedAtFormatted}</p>
