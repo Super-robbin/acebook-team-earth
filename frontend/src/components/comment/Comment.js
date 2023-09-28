@@ -22,7 +22,7 @@ const Comment = ({ comment }) => {
                         src={
                             comment.user.picture ? comment.user.picture : defaultProfilePic
                           }
-                          />
+                        />
                     <div className="card__user-info">
                         <p className="card__text_name comment_text">{comment.user.username}</p>
                         <p className="card__text_time" >{commentedAtFormatted}</p>
@@ -33,3 +33,5 @@ const Comment = ({ comment }) => {
         </>
     )
 }
+
+export default Comment;
