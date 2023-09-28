@@ -4,7 +4,7 @@ p {
 
 .card {
     width: 34rem;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 2rem;
     background-color: #fff;
     border-radius: 2rem;
     margin-top: 2rem;
@@ -54,3 +54,29 @@ p {
     margin-left: .5rem;
 }
 
+.comment {
+    width: 34rem;
+    background-color: #fff;
+    border-radius: 2rem;
+    margin-top: -3.5rem;
+    height: fit-content;
+    padding: 1rem 2rem;
+}
+
+.comment_text {
+    font-size: 0.8rem;
+}
+
+.comment_img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.comment__section:not(:last-child) {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(128 128 128 / 10%);
+}
+
+.comment__content {
+    margin-bottom: 1rem;
+}

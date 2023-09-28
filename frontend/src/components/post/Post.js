@@ -25,7 +25,6 @@ const Post = ({ post, token, handleAddLike }) => {
 
   const toggleComments = () => {
     setShowComments(!showComments);
-    console.log(showComments);
   };
 
   return (
@@ -64,20 +63,17 @@ const Post = ({ post, token, handleAddLike }) => {
         </div>
       </div>
       {showComments ? (
-        <>
+        <div className="comment">
           <CommentForm token={token} post={post} />
-          <div>
-            {post.comments.map((comment) => (
-              <Comment comment={comment} key={comment._id} />
-            ))}
-          </div>
-        </>
-      ) : (
-        <CommentForm token={token} post={post} />
-      )}
-      <div></div>
-    </>
-  );
+          {post.comments.map((comment) => (
+            <Comment comment={comment} key={comment._id} />
+          ))}
+        </div>
+        ) : null }
+    <div>
+    </div>
+  </>
+  )
 };
-
+  
 export default Post;

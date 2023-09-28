@@ -16,3 +16,8 @@
 .post_form__textarea:focus { 
     outline: none; 
 }
+
+.comment_form {
+    padding: 3rem 1rem 1rem;
+    position: relative;
+}
