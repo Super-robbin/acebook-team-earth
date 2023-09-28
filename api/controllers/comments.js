@@ -35,9 +35,13 @@ const CommentsController = {
           }
         }
       );
-
-      const token = TokenGenerator.jsonwebtoken(req.user_id);
-      res.status(201).json({ message: "OK", token: token });
+      savedComment
+        .populate("user")
+          .execPopulate()
+          .then(it => { 
+            const token = TokenGenerator.jsonwebtoken(req.user_id);
+            res.status(201).json({ message: "OK", token: token, comment: it });
+          })
     });
   },
 };

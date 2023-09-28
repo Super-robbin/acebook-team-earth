@@ -37,13 +37,31 @@ const PostsController = {
         user: req.user_id,
       });
     }
-    post.save((err) => {
+
+    post.save((err, savedPost) => {
       if (err) {
         throw err;
       }
-      const token = TokenGenerator.jsonwebtoken(req.user_id);
-      res.status(201).json({ message: "OK", token: token });
-    });
+      
+      savedPost
+        .populate([
+          "comments",
+          {
+            path: "comments",
+            populate: {
+              path: "user",
+              model: "User",
+              select: "-password",
+            },
+          },
+        ])
+        .populate("user")
+        .execPopulate()
+        .then(it => {
+          const token = TokenGenerator.jsonwebtoken(req.user_id);
+          res.status(201).json({ message: "OK", token: token, post: it });
+        }
+    )})
   },
 
   AddLike: (req, res) => {

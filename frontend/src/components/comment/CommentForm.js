@@ -3,27 +3,13 @@ import '../../styles/post_form/post_form.css';
 import send from '../../images/send.svg';
 import '../../styles/buttons/buttons.css';
 
-const CommentForm = ({token, post}) => {
+const CommentForm = ({ handleAddComment }) => {
     const [content, setContent] = useState('')
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        let response = await fetch('/comments', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify({ content: content, post_id: post._id })
-        })
-        if (response.status !== 201) {
-            console.log('bad request')
-        } else {
-            let data = await response.json();
-            window.localStorage.setItem("token", data.token);
-            window.location.reload()
-        }
+        handleAddComment(content);
+        setContent('')
     }
 
     const handleCommentChange = (e) => {

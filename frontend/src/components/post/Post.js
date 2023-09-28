@@ -7,6 +7,7 @@ import bubble from "../../images/bubble.svg";
 import defaultProfilePic from "../../images/default_profile_pic.jpg";
 
 const Post = ({ post, token, handleAddLike }) => {
+  const [comments, setComments] = useState(post.comments);
   const [showComments, setShowComments] = useState(false);
 
   const postedAt = new Date(post.createdAt);
@@ -25,6 +26,30 @@ const Post = ({ post, token, handleAddLike }) => {
   const toggleComments = () => {
     setShowComments(!showComments);
   };
+
+  const handleAddComment = (content) => {
+    fetch('/comments', {
+      method: 'post',
+      headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({ content: content, post_id: post._id })
+  })
+  .then(res => {
+    if (res.status !== 201) {
+      return Promise.reject('can`t add comment')
+    }
+    return res.json()
+  })
+  .then((data) => {
+    let newComment = data.comment;
+    console.log(newComment, 'com')
+    setComments([newComment, ...comments])
+    window.localStorage.setItem("token", data.token);
+  })
+  }
+  console.log(comments, 'commets')
 
   return (
     <>
@@ -51,7 +76,7 @@ const Post = ({ post, token, handleAddLike }) => {
             alt="comment-icon"
             onClick={toggleComments}
           />
-          <p className="card__item">{post.comments.length}</p>
+          <p className="card__item">{comments.length}</p>
           <img
             onClick={handleLikeClick}
             className="card__item"
@@ -63,8 +88,8 @@ const Post = ({ post, token, handleAddLike }) => {
       </div>
       {showComments ? (
         <div className="comment">
-          <CommentForm token={token} post={post} />
-          {post.comments.map((comment) => (
+          <CommentForm handleAddComment={handleAddComment} />
+          {comments.map((comment) => (
             <Comment comment={comment} key={comment._id} />
           ))}
         </div>
