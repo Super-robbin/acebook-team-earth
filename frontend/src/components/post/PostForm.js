@@ -4,7 +4,7 @@ import '../../styles/buttons/buttons.css';
 import send from '../../images/send.svg'
 import fileImg from '../../images/Img_box_fill.svg'
 
-const PostForm = ({ token }) => {
+const PostForm = ({ handleAddPost }) => {
   const [message, setMessage] = useState("");
   const [image, setImage] = useState("");
 
@@ -15,21 +15,8 @@ const PostForm = ({ token }) => {
     formData.append('message', message);
     formData.append('image', image);
 
-    let response = await fetch( '/posts', {
-        method: 'post',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData
-      }) 
-      if (response.status !== 201) {
-        
-      } else {
-        let data = await response.json();
-        window.localStorage.setItem("token", data.token);
-        window.location.reload();
-      } 
-      
+    handleAddPost(formData);
+    setMessage('')
   };
 
   const handleMessageChange = (event) => {
@@ -57,7 +44,7 @@ const PostForm = ({ token }) => {
               <img className="button__img" src={fileImg} alt="choose file" />
               <input className="button__file" id="fileUpload" type="file" accept=".png, .jpg, .jpeg" name="image" onChange={handleImageChange} />
             </label>
-          <button className="button__send" role="create-button" id="submit" type="submit"><img src={send} alt="airplane-icon" /></button>
+          <button disabled={!message} className="button__send" role="create-button" id="submit" type="submit"><img src={send} alt="airplane-icon" /></button>
         </div>
       </form>
     </section>

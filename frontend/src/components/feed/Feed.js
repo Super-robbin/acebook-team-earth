@@ -63,6 +63,27 @@ const Feed = ({ navigate }) => {
       setPosts((posts) => posts.map((p) => (p._id === newPost._id ? newPost : p)))
     })
   }
+
+  const handleAddPost = (formData) => {
+    fetch( '/posts', {
+      method: 'post',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData
+    })
+    .then(res => {
+      if (res.status !== 201) {
+        return Promise.reject('can`t add post')
+      }
+      return res.json()
+    })
+    .then((data) => {
+      let newPost = data.post;
+      setPosts([newPost, ...posts])
+      window.localStorage.setItem("token", data.token);
+    })
+  }
     
   const sortByDate = (array) => {
     array.sort((a,b) => { 
@@ -86,7 +107,7 @@ const Feed = ({ navigate }) => {
               <h2>Posts feed</h2>
             </div>
             <div className="post__container" id='feed' role="feed">
-            <PostForm token={ token } setToken={ setToken }/>
+            <PostForm token={ token } handleAddPost={handleAddPost} />
                 {posts.map(
                   (post) => ( <Post post={ post } key={ post._id } token={token} setToken={setToken} handleAddLike={handleAddLike} /> )
                 )}
