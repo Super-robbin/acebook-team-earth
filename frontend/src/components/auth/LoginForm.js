@@ -14,8 +14,6 @@ const LogInForm = ({ navigate }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let error = 'User not found'
-    setError(error);
 
     let response = await fetch( '/tokens', {
       method: 'post',

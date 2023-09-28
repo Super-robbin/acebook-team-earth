@@ -1,13 +1,22 @@
 const User = require("../models/user");
 
 const UsersController = {
-  Index: (req, res) => {
-    const user = {id: req.params.user_id, username: req.username, picture: req.picture}
-    User.find((err, users) => {
-      if (err) {
-        throw err;
+  // Index: (req, res) => {
+  //   const user = {id: req.params.user_id, username: req.username, picture: req.picture}
+  //   User.find((err, users) => {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     res.status(200).json({ users: users})
+  //   })
+  // },
+  CurrentUser: (req, res) => {
+    User.findOne({_id: req.user_id}).then((user) => {
+      if (user) {
+        res.status(200).json({user: { username: user.username, picture: user.picture }})
+      } else {
+        res.status(400).json({message: 'Can`t find user'})
       }
-      res.status(200).json({ users: users})
     })
   },
 

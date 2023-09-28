@@ -6,10 +6,27 @@ import '../../styles/feed/feed.css';
 import postPic from '../../images/Vector.svg';
 
 
-const Feed = ({ navigate, user }) => {
+const Feed = ({ navigate }) => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
-  console.log(user)
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    if (token) {
+      fetch("/users/current", {
+        method: "get",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setUser(data.user);
+        });
+    }
+  }, []);
+
+
   useEffect(() => {
     if(token) {
       fetch("/posts", {
@@ -23,7 +40,6 @@ const Feed = ({ navigate, user }) => {
           setToken(window.localStorage.getItem("token"))
           sortByDate(data.posts)
           setPosts(data.posts);
-
         })
     }
   }, [])
@@ -63,7 +79,7 @@ const Feed = ({ navigate, user }) => {
     if(token) {
       return(
         <>
-          <FeedHeader token={ token } user={ user } logout={logout} />
+          <FeedHeader user={ user } logout={logout} />
           <section className="feed">
             <div className="feed__post-title_container">
               <img src={postPic} alt="speaker-icon" />

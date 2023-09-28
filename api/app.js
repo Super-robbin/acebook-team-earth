@@ -1,3 +1,4 @@
+const tokenChecker = require("./token_checker/token_checker")
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -22,24 +23,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// middleware function to check for valid tokens
-const tokenChecker = (req, res, next) => {
-
-  let token;
-  const authHeader = req.get("Authorization")
-  if(authHeader) {
-    token = authHeader.slice(7)
-  }
-  JWT.verify(token, process.env.JWT_SECRET, (err, payload) => {
-    if(err) {
-      console.log(err)
-      res.status(401).json({message: "auth error"});
-    } else {
-      req.user_id = payload.user_id;
-      next();
-    }
-  });
-};
 
 // route setup
 app.use("/", homepageRouter);
