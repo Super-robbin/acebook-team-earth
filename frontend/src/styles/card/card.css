@@ -15,6 +15,7 @@ p {
     border-radius: 50%;
     width: 3.7rem;
     height: 3.7rem;
+    border: 1px solid;
 }
 
 .card__container {

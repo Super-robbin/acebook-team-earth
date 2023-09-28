@@ -53,7 +53,7 @@ const Feed = ({ navigate }) => {
       }
     })
     .then(res => {
-      if (res.status != 201) {
+      if (res.status !== 201) {
         return Promise.reject('can`t like the post')
       }
       return res.json()

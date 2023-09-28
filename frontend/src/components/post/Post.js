@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import CommentForm from "../comment/CommentForm";
 import Comment from "../comment/Comment";
 import "../../styles/card/card.css";
-import heart from "../../images/heart-filled.svg";
 import heartOut from "../../images/heart_outline.svg";
 import bubble from "../../images/bubble.svg";
 import defaultProfilePic from "../../images/default_profile_pic.jpg";

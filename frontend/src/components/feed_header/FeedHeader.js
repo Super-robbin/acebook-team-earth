@@ -2,15 +2,15 @@ import React from 'react';
 import '../../styles/buttons/buttons.css';
 import '../../styles/container/container.css';
 import logout_icon from '../../images/logout.svg';
+import defaultProfilePic from "../../images/default_profile_pic.jpg";
 
 const FeedHeader = ({ user, logout }) => {
-    console.log(user, 'userr')
     return (
         <>
             <header className="header__feed">
                 <h1>ACEBOOK</h1>
                 <div className="user__info">
-                    <img className="user__img" src={user.picture} alt="user pic" />
+                    <img className="user__img" src={user.picture ? user.picture : defaultProfilePic} alt="user pic" />
                     <p>{user.username}</p>
                     <button className="button__log-out" onClick={logout}>
                         <img className="sign" src={logout_icon} alt="logout-icon" />

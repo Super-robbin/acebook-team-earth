@@ -10,10 +10,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route
-          path="/posts"
-          element={<Feed navigate={useNavigate()} />}
-        />
+        <Route path="/posts" element={<Feed navigate={useNavigate()} />} />
         <Route path="/login" element={<LoginForm navigate={useNavigate()} />} />
         <Route
           path="/signup"

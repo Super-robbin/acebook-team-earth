@@ -23,6 +23,7 @@ const PostForm = ({ token }) => {
         body: formData
       }) 
       if (response.status !== 201) {
+        
       } else {
         let data = await response.json();
         window.localStorage.setItem("token", data.token);
