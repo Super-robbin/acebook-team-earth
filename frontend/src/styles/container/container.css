@@ -164,6 +164,7 @@
     width: 3rem;
     height: 3rem;
     margin-right: 1rem;
+    border: 1px solid;
 }
 
 .user__info {
