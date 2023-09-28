@@ -5,6 +5,8 @@ import lock from '../../images/lock-03.svg';
 import email_icon from '../../images/email.svg';
 import eye_opened from '../../images/View.svg';
 import eye_closed from '../../images/View_hide.svg';
+import userPic from '../../images/User.svg';
+import profilePic from '../../images/Img_box.svg'
 
 const SignUpForm = ({ navigate }) => {
 
@@ -112,7 +114,8 @@ const SignUpForm = ({ navigate }) => {
             <form className="form" onSubmit={handleSubmit}>
               <h3 className="title">Sign Up</h3>
               <div className="form__input-box">
-              <input className="form__input" placeholder="Username" id="username" type='text' value={ username } onChange={handleUsernameChange} /> 
+                <img className="form__icon" src={userPic} alt="user_icon" />
+                <input className="form__input" placeholder="Username" id="username" type='text' value={ username } onChange={handleUsernameChange} /> 
               </div>
               <div className="error__container">
                 {errors.username ? (
@@ -121,7 +124,7 @@ const SignUpForm = ({ navigate }) => {
                       </p>) : null}
               </div>
               <div className="form__input-box">
-                <img className="form__icon" src={email_icon} />
+                <img className="form__icon" src={email_icon} alt="email_icon" />
                 <input className="form__input" placeholder="Email" id="email" type='text' value={ email } onChange={handleEmailChange} />
               </div>
               <div className="error__container">
@@ -131,9 +134,9 @@ const SignUpForm = ({ navigate }) => {
                     </p>) : null}
               </div>
               <div className="form__input-box">
-                <img className="form__icon" src={lock} />
+                <img className="form__icon" src={lock} alt="lock-icon" />
                 <input className="form__input" placeholder="Password" id="password" type={showPassword ? "text" : "password"} value={ password } onChange={handlePasswordChange} />
-                <img className="button__toggle" src={showPassword ? eye_opened : eye_closed} onClick={togglePassword}/>
+                <img alt="show-password-icon" className="button__toggle" src={showPassword ? eye_opened : eye_closed} onClick={togglePassword}/>
               </div>
               <div className="error__container">
                 {errors.password ? (
@@ -142,7 +145,8 @@ const SignUpForm = ({ navigate }) => {
                     </p>) : null}
               </div>
               <div className="form__input-box">
-              <input className="form__input" placeholder="Picture URL" id="picture" type='text' value={ picture } onChange={handlePictureChange} /> 
+                <img className="form__icon" src={profilePic} alt="img_icon" />
+                <input className="form__input" placeholder="Picture URL" id="picture" type='text' value={ picture } onChange={handlePictureChange} /> 
               </div>
             <button className="form__button form__ghost" id='submit' type="submit">Sign Up
             </button>
