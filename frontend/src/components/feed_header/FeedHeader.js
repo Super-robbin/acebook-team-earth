@@ -4,7 +4,6 @@ import '../../styles/container/container.css';
 import logout_icon from '../../images/logout.svg';
 
 const FeedHeader = ({ user, logout }) => {
-    console.log(user, 'userr')
     return (
         <>
             <header className="header__feed">

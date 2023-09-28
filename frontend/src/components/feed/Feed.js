@@ -39,6 +39,8 @@ const Feed = ({ navigate }) => {
           window.localStorage.setItem("token", data.token)
           setToken(window.localStorage.getItem("token"))
           sortByDate(data.posts)
+          console.log(data.posts)
+          // let newPost = 
           setPosts(data.posts);
         })
     }
@@ -53,7 +55,7 @@ const Feed = ({ navigate }) => {
       }
     })
     .then(res => {
-      if (res.status != 201) {
+      if (res.status !== 201) {
         return Promise.reject('can`t like the post')
       }
       return res.json()

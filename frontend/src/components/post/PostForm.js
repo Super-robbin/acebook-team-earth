@@ -26,7 +26,7 @@ const PostForm = ({ token }) => {
       } else {
         let data = await response.json();
         window.localStorage.setItem("token", data.token);
-        window.location.reload();
+        // window.location.reload();
       } 
       
   };
