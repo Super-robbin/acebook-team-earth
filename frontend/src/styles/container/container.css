@@ -158,3 +158,16 @@
 .error-auth__message {
     margin: 0;
 }
+
+.user__img {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.user__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
