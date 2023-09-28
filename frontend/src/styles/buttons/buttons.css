@@ -110,3 +110,28 @@
     bottom: 15px;
     right: 15px;
 }
+
+.button__send_comment {
+	right: -5px;
+}
+
+.disabled {
+	display: none;
+}
+
+input[type=file]::file-selector-button {
+	background-color: unset;
+	border: none;
+	display: none;
+}
+
+.button__label {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: #C4C4C4;
+}
+
+.button__img {
+	margin-right: 5px;
+}
