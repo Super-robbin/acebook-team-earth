@@ -17,7 +17,7 @@ const SignUpForm = ({ navigate }) => {
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     fetch( '/users', {
       method: 'post',
@@ -30,11 +30,12 @@ const SignUpForm = ({ navigate }) => {
         if(response.status === 201) {
           navigate('/login')
         } else {
+          setErrors(errors)
           return response.json()
         }
       }).then((data) => {
-        console.log(data.message)
-        setErrors({ ...errors, signUp: data.message });
+        let errorMessage = data.message;
+        setErrors({ ...errors, signUp: errorMessage });
       
       })
   }
@@ -71,7 +72,6 @@ const SignUpForm = ({ navigate }) => {
   const validateUsername = (username) => {
     const errors = [];
     if (username.length < 2) {
-      console.log(username.length)
       errors.push('Username should has at least 2 characters')
     }
     return errors
@@ -105,8 +105,13 @@ const SignUpForm = ({ navigate }) => {
     }
     return errors;
   };
-  
 
+  const hasErrors = () => {
+    return (
+      Object.values(errors).some((error) => Array.isArray(error) && error.length > 0)
+    );
+  };
+  
     return (
       <>
         <section className="container">
@@ -148,14 +153,16 @@ const SignUpForm = ({ navigate }) => {
                 <img className="form__icon" src={profilePic} alt="img_icon" />
                 <input className="form__input" placeholder="Picture URL" id="picture" type='text' value={ picture } onChange={handlePictureChange} /> 
               </div>
-            <button className="form__button form__ghost" id='submit' type="submit">Sign Up
+            <button disabled={hasErrors()} className={`form__button form__ghost ${hasErrors() ? 'disabled__auth' : ''}`} id='submit' type="submit">Sign Up
             </button>
+            <div className="error-auth__container">
               {errors.signUp ? (
-                <div className="error-auth">
-                  <p className="error-auth__message">
-                    {errors.signUp}
-                  </p>
-                </div>) : null}
+                  <span className="error-auth">
+                    <p className="error-auth__message">
+                      {errors.signUp}
+                    </p>
+                  </span>) : null}
+            </div>
           </form>
           </div>
           <div className="container-panel container-panel_right">
