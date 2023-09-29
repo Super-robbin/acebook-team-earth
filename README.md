@@ -31,9 +31,9 @@ This project is our own version of Facebook. In this project, we were tasked wit
    ```
    Then follow the instructions to update your `~/.bash_profile`.
 2. Open a new terminal
-3. Install the latest version of [Node.js](https://nodejs.org/en/), currently `18.1.0`.
+3. Install the latest version of [Node.js](https://nodejs.org/en/), currently `20.5.1`.
    ```
-   nvm install 18
+   nvm install 20
    ```
 
 ### Set up your project
