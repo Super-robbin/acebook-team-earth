@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-This project is our own version of Facebook. In this project, we were tasked with working on an existing application. A significant part of the challenge was to familiarise ourselves with the codebase we inherited, as we worked to **improve and extend** it.
+This project is our own version of Facebook. In this project, we were tasked with working on an existing application. A significant part of the challenge was to familiarise ourselves with the codebase we inherited, as we worked to improve and extend it.
 </p>
 
 ## 🤝 Our Team
