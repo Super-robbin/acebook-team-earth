@@ -1,18 +1,27 @@
-# Acebook
+<h1 align="center">
+ Acebook - Team Earth 🌍
+</h1>
 
-In this project, you are tasked with working on an existing application. A significant part of the challenge will be to familiarise yourself with the codebase you've inherited, as you work to **improve and extend** it.
+<p align="center">
+This project is our own version of Facebook. In this project, we were tasked with working on an existing application. A significant part of the challenge was to familiarise ourselves with the codebase we inherited, as we worked to improve and extend it.
+</p>
 
-## Documentation
+## 🤝 Our Team
+* **[Alina Ermakova](https://github.com/alalinaermakova)**
+* **[David Ade](https://github.com/D6link)**
+* **[Judith Baidoo](https://github.com/judithbaidoo)**
+* **[Roberto Quadraccia](https://github.com/Super-robbin)**
+* **[Emily Cowan](https://github.com/Emily-RC)**
 
-[More documentation of the codebase and its architecture can be found here.](./DOCUMENTATION.md) It's recommended you all read this _after making sure the whole setup below worked for everyone_. Then work together on a diagram describing how the application works.
+## 🚀 Tech stack
 
-[A template Miro board for your diagrams can be found here.](https://miro.com/app/board/uXjVPqNzFfc=/?share_link_id=360271550320) Make sure your validate your diagrams with your coach.
+**Frontend:**
+<img src="https://img.shields.io/badge/Javascript-yellow?logo=javascript"> <img src="https://img.shields.io/badge/HTML-orange?logo=HTML"> <img src="https://img.shields.io/badge/CSS-blue?logo=CSS"> <img src="https://img.shields.io/badge/React-grey?logo=React">
 
-## Card wall
+**Backend:**
+<img src="https://img.shields.io/badge/MongoDB-green?logo=MongoDB"> <img src="https://img.shields.io/badge/Express-black?logo=Express"> <img src="https://img.shields.io/badge/Node-darkgreen?logo=Node">
 
-https://trello.com/b/oEAZJKK8/acebook-team-earth
-
-## Quickstart
+## 💻 Running the project
 
 ### Install Node.js
 
@@ -79,7 +88,9 @@ Then, after signing up, you should be able to log in by going to `http://localho
 
 After logging in, you won't see much but you can create posts using PostMan and they should then show up in the browser if you refresh the page.
 
-### How to run automated tests
+## 🧪 Running the tests
+
+If you are interested in seeing our tests you can run them locally. 
 
 The automated tests run by sending actual HTTP requests to the API. Therefore, before anything, you'll need to start the backend server in test mode (so that it connects to the test DB).
 
@@ -136,14 +147,14 @@ Some people occasionally experience MongoDB connection errors when running the t
 
 If you have issues that are not resolved by these tips, please reach out to a coach and, once the issue is resolved, we can add a new tip!
 
+## Additional Resources 
 
+[Trello](https://trello.com/b/oEAZJKK8/acebook-team-earth) 
 
-<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+[Miro](https://miro.com/app/board/uXjVMj20h7U=/?share_link_id=983792734137)
 
----
+[Notion](https://www.notion.so/Software-Module-3-Acebook-c1888e76cd3e4926a23efa542ea9dc0e?pvs=4) 
 
-**How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😀)  
-Click an emoji to tell us.
-
-<!-- END GENERATED SECTION DO NOT EDIT -->
+## 🫶 Special Thanks
+[Makers](https://www.makers.tech/) for giving us the opportunity to work on this cool project on our journey into tech. <br>
+Our coach [Claire](https://github.com/ClaireMakers) for guiding and teaching us throughout the project!
