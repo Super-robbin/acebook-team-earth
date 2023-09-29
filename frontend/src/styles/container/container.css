@@ -143,20 +143,30 @@
     color: #FF4B2B;
 }
 
+.error-auth__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
 .error-auth {
     height: fit-content;
     width: fit-content;
+    position: absolute;
     padding: 5px;
     background: #FCE8DB;
     border-radius: 8px;
     border: 1px solid #EF665B;
     box-shadow: 0px 0px 5px -3px #111;
     color: #723531;
-    margin: auto;
 }
 
 .error-auth__message {
     margin: 0;
+}
+
+.disabled__auth {
+    opacity: 0.5;
 }
 
 .user__img {
