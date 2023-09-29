@@ -106,10 +106,17 @@ const SignUpForm = ({ navigate }) => {
     return errors;
   };
 
-  const hasErrors = () => {
-    return (
-      Object.values(errors).some((error) => Array.isArray(error) && error.length > 0)
+  const hasErrors = (email, password, errors) => {
+    // Check if either email or password is empty
+    const isEmpty = email.trim() === '' || password.trim() === '';
+  
+    // Check if there are any errors in the errors object
+    const hasValidationErrors = Object.values(errors).some(
+      (error) => Array.isArray(error) && error.length > 0
     );
+  
+    // Combine the checks using logical OR (||)
+    return isEmpty || hasValidationErrors;
   };
   
     return (
@@ -153,7 +160,7 @@ const SignUpForm = ({ navigate }) => {
                 <img className="form__icon" src={profilePic} alt="img_icon" />
                 <input className="form__input" placeholder="Picture URL" id="picture" type='text' value={ picture } onChange={handlePictureChange} /> 
               </div>
-            <button disabled={hasErrors()} className={`form__button form__ghost ${hasErrors() ? 'disabled__auth' : ''}`} id='submit' type="submit">Sign Up
+            <button disabled={hasErrors(email, password, errors)} className={`form__button form__ghost ${hasErrors(email, password, errors) ? 'disabled__auth' : ''}`} id='submit' type="submit">Sign Up
             </button>
             <div className="error-auth__container">
               {errors.signUp ? (
