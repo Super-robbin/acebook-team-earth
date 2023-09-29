@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Video from '../video/Video';
 import '../../styles/container/container.css';
 import '../../styles/buttons/buttons.css';
 
@@ -14,7 +15,9 @@ const Homepage = () => {
                         <Link to={"/login"}><button className="button ghost">Login</button></Link>
                     </div>
             </header>
-            <section className="container-panel container-panel_left"></section>
+            <section className="container-panel container-panel_left bg__color">
+                <Video />
+            </section>
         </section>
     )
 }
