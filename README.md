@@ -16,15 +16,10 @@ This project is our own version of Facebook. In this project, we were tasked wit
 ## 🚀 Tech stack
 
 **Frontend:**
-[Javascript](https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square)
-<img src="https://img.shields.io/badge/HTML-orange"> <img src="https://img.shields.io/badge/CSS-blue">
+<img src="https://img.shields.io/badge/Javascript-yellow?logo=javascript"> <img src="https://img.shields.io/badge/HTML-orange"> <img src="https://img.shields.io/badge/CSS-blue">
 
 **Backend:**
-MongoDB
-Express 
-React 
-Node 
-Multer 
+<img src="https://img.shields.io/badge/MongoDB-green?logo=MongoDB"> <img src="https://img.shields.io/badge/Express-black?logo=Express"> <img src="https://img.shields.io/badge/React-turquoise?logo=React"> <img src="https://img.shields.io/badge/Node-green?logo=Node"> <img src="https://img.shields.io/badge/Multer-blue"> 
 
 ## 💻 Running the project
 
