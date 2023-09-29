@@ -1,18 +1,32 @@
-# Acebook
+<h1 align="center">
+ Acebook - Team Earth 🌍
+</h1>
 
-In this project, you are tasked with working on an existing application. A significant part of the challenge will be to familiarise yourself with the codebase you've inherited, as you work to **improve and extend** it.
+<p align="center">
+This project is our own version of Facebook. In this project, we were tasked with working on an existing application. A significant part of the challenge was to familiarise ourselves with the codebase we inherited, as we worked to **improve and extend** it.
+</p>
 
-## Documentation
+## 🤝 Our Team
+* **[Alina Ermakova](https://github.com/alalinaermakova)**
+* **[David Ade](https://github.com/D6link)**
+* **[Judith Baidoo](https://github.com/judithbaidoo)**
+* **[Roberto Quadraccia](https://github.com/Super-robbin)**
+* **[Emily Cowan](https://github.com/Emily-RC)**
 
-[More documentation of the codebase and its architecture can be found here.](./DOCUMENTATION.md) It's recommended you all read this _after making sure the whole setup below worked for everyone_. Then work together on a diagram describing how the application works.
+## 🚀 Tech stack
 
-[A template Miro board for your diagrams can be found here.](https://miro.com/app/board/uXjVPqNzFfc=/?share_link_id=360271550320) Make sure your validate your diagrams with your coach.
+**Frontend:**
+[Javascript](https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square)
+<img src="https://img.shields.io/badge/HTML-orange"> <img src="https://img.shields.io/badge/CSS-blue">
 
-## Card wall
+**Backend:**
+MongoDB
+Express 
+React 
+Node 
+Multer 
 
-https://trello.com/b/oEAZJKK8/acebook-team-earth
-
-## Quickstart
+## 💻 Running the project
 
 ### Install Node.js
 
@@ -75,15 +89,10 @@ https://trello.com/b/oEAZJKK8/acebook-team-earth
 
 You should now be able to open your browser and go to `http://localhost:3000/signup` to create a new user.
 
-Then, after signing up, you should be able to log in by going to `http://localhost:3000/login`.
 
-After logging in, you won't see much but you can create posts using PostMan and they should then show up in the browser if you refresh the page.
+## 🧪 Running the tests
 
-### How to run automated tests
-
-The automated tests run by sending actual HTTP requests to the API. Therefore, before anything, you'll need to start the backend server in test mode (so that it connects to the test DB).
-
-**Note the use of an environment variable for the JWT secret**
+If you are interested in seeing our tests you can run them locally. 
 
 ```bash
 # Make sure you're in the api directory
@@ -127,23 +136,12 @@ Then run the tests in a new terminal session
 ; JWT_SECRET=f6d278bb34e1d0e146a80b16ec254c05 npm run test
 ```
 
-## MongoDB Connection Errors?
+## Additional Resources 
 
-Some people occasionally experience MongoDB connection errors when running the tests or trying to use the application. Here are some tips which might help resolve such issues.
+[Trello](https://trello.com/b/oEAZJKK8/acebook-team-earth)
+[Miro](https://miro.com/app/board/uXjVMj20h7U=/?share_link_id=983792734137)
+[Notion](https://www.notion.so/Software-Module-3-Acebook-c1888e76cd3e4926a23efa542ea9dc0e?pvs=4) 
 
-- Check that MongoDB is installed using `mongo --version`
-- Check that it's running using `brew services list`
-
-If you have issues that are not resolved by these tips, please reach out to a coach and, once the issue is resolved, we can add a new tip!
-
-
-
-<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
-
----
-
-**How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Facebook-mern-template&prefill_File=README.md&prefill_Sentiment=😀)  
-Click an emoji to tell us.
-
-<!-- END GENERATED SECTION DO NOT EDIT -->
+## 🫶 Special Thanks
+[Makers](https://www.makers.tech/) for giving us the opportunity to work on this cool project on our journey into tech. <br>
+Our coach [Claire](https://github.com/ClaireMakers) for guiding and teaching us throughout the project!
