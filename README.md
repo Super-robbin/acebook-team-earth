@@ -16,10 +16,10 @@ This project is our own version of Facebook. In this project, we were tasked wit
 ## 🚀 Tech stack
 
 **Frontend:**
-<img src="https://img.shields.io/badge/Javascript-yellow?logo=javascript"> <img src="https://img.shields.io/badge/HTML-orange"> <img src="https://img.shields.io/badge/CSS-blue">
+<img src="https://img.shields.io/badge/Javascript-yellow?logo=javascript"> <img src="https://img.shields.io/badge/HTML-orange?logo=HTML"> <img src="https://img.shields.io/badge/CSS-blue?logo=CSS"> <img src="https://img.shields.io/badge/React-grey?logo=React">
 
 **Backend:**
-<img src="https://img.shields.io/badge/MongoDB-green?logo=MongoDB"> <img src="https://img.shields.io/badge/Express-black?logo=Express"> <img src="https://img.shields.io/badge/React-turquoise?logo=React"> <img src="https://img.shields.io/badge/Node-green?logo=Node"> <img src="https://img.shields.io/badge/Multer-blue"> 
+<img src="https://img.shields.io/badge/MongoDB-green?logo=MongoDB"> <img src="https://img.shields.io/badge/Express-black?logo=Express"> <img src="https://img.shields.io/badge/Node-darkgreen?logo=Node">
 
 ## 💻 Running the project
 
@@ -84,10 +84,17 @@ This project is our own version of Facebook. In this project, we were tasked wit
 
 You should now be able to open your browser and go to `http://localhost:3000/signup` to create a new user.
 
+Then, after signing up, you should be able to log in by going to `http://localhost:3000/login`.
+
+After logging in, you won't see much but you can create posts using PostMan and they should then show up in the browser if you refresh the page.
 
 ## 🧪 Running the tests
 
 If you are interested in seeing our tests you can run them locally. 
+
+The automated tests run by sending actual HTTP requests to the API. Therefore, before anything, you'll need to start the backend server in test mode (so that it connects to the test DB).
+
+**Note the use of an environment variable for the JWT secret**
 
 ```bash
 # Make sure you're in the api directory
@@ -131,10 +138,21 @@ Then run the tests in a new terminal session
 ; JWT_SECRET=f6d278bb34e1d0e146a80b16ec254c05 npm run test
 ```
 
+## MongoDB Connection Errors?
+
+Some people occasionally experience MongoDB connection errors when running the tests or trying to use the application. Here are some tips which might help resolve such issues.
+
+- Check that MongoDB is installed using `mongo --version`
+- Check that it's running using `brew services list`
+
+If you have issues that are not resolved by these tips, please reach out to a coach and, once the issue is resolved, we can add a new tip!
+
 ## Additional Resources 
 
-[Trello](https://trello.com/b/oEAZJKK8/acebook-team-earth)
+[Trello](https://trello.com/b/oEAZJKK8/acebook-team-earth) 
+
 [Miro](https://miro.com/app/board/uXjVMj20h7U=/?share_link_id=983792734137)
+
 [Notion](https://www.notion.so/Software-Module-3-Acebook-c1888e76cd3e4926a23efa542ea9dc0e?pvs=4) 
 
 ## 🫶 Special Thanks
