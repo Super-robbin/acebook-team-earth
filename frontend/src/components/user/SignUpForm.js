@@ -19,7 +19,7 @@ const SignUpForm = ({ navigate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch( '/users', {
+    fetch( `${process.env.REACT_APP_API_URL}/users`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

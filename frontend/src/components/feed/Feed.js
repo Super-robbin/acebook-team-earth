@@ -13,7 +13,7 @@ const Feed = ({ navigate }) => {
 
   useEffect(() => {
     if (token) {
-      fetch("/users/current", {
+      fetch(`${process.env.REACT_APP_API_URL}/users/current`, {
         method: "get",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ const Feed = ({ navigate }) => {
 
   useEffect(() => {
     if(token) {
-      fetch("/posts", {
+      fetch(`${process.env.REACT_APP_API_URL}/posts`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -45,7 +45,7 @@ const Feed = ({ navigate }) => {
   }, [])
 
   const handleAddLike = (post) => {
-    fetch(`/posts/${post._id}/like`, {
+    fetch(`${process.env.REACT_APP_API_URL}/posts/${post._id}/like`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const Feed = ({ navigate }) => {
   }
 
   const handleAddPost = (formData) => {
-    fetch( '/posts', {
+    fetch( `${process.env.REACT_APP_API_URL}/posts`, {
       method: 'post',
       headers: {
         Authorization: `Bearer ${token}`,

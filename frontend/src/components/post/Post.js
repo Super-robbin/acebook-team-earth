@@ -28,7 +28,7 @@ const Post = ({ post, token, handleAddLike }) => {
   };
 
   const handleAddComment = (content) => {
-    fetch('/comments', {
+    fetch(`${process.env.REACT_APP_API_URL}/comments`, {
       method: 'post',
       headers: {
           'Content-Type': 'application/json',
