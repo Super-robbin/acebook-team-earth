@@ -48,7 +48,6 @@ const Post = ({ post, token, handleAddLike }) => {
     window.localStorage.setItem("token", data.token);
   })
   }
-  console.log(comments, 'commets')
 
   return (
     <>
