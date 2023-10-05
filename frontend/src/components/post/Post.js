@@ -65,7 +65,7 @@ const Post = ({ post, token, handleAddLike }) => {
           </div>
         </div>
         {post.image && (
-          <img src={`/images/${post.image}`} alt="post-img" width="100%" />
+          <img src={`${process.env.REACT_APP_API_URL}/images/${post.image}`} alt="post-img" width="100%" />
         )}
         <p className="card__text">{post.message}</p>
         <div className="card__info">
