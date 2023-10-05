@@ -44,7 +44,6 @@ const Post = ({ post, token, handleAddLike }) => {
   })
   .then((data) => {
     let newComment = data.comment;
-    console.log(newComment, 'com')
     setComments([newComment, ...comments])
     window.localStorage.setItem("token", data.token);
   })
